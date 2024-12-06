@@ -1,15 +1,17 @@
 package it.epicode.biblioteca.dao;
 
+import it.epicode.biblioteca.entity.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import lombok.AllArgsConstructor;
+
 import java.util.List;
 
 @AllArgsConstructor
 public class UserDAO {
     private EntityManager em;
 
-    public void save(User  oggetto) {
+    public void save(User oggetto) {
         em.getTransaction().begin();
         em.persist(oggetto);
         em.getTransaction().commit();
@@ -22,7 +24,7 @@ public class UserDAO {
     public List<User> findAll() {
         return em.createNamedQuery("Trova_tutto_User", User.class).getResultList();
     }
-    
+
     public void update(User oggetto) {
         em.getTransaction().begin();
         em.merge(oggetto);

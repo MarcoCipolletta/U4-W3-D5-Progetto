@@ -1,4 +1,4 @@
-package it.epicode.exception;
+package it.epicode.biblioteca.exception;
 
 public class ISBNException extends Exception {
     public ISBNException(String message) {

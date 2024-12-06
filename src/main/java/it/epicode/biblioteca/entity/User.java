@@ -12,13 +12,24 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="card_number")
     private Long cardNumber;
     private String name;
     private String surname;
+    @Column(name="birth_date")
     private LocalDate birthDate;
 
     @OneToMany(mappedBy = "user")
     private List<Borrow> borrows;
 
-
+    @Override
+    public String toString() {
+        return "Utente{" +
+                "cardNumber=" + cardNumber +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", birthDate=" + birthDate +
+                ", borrows=" + borrows.size() +
+                '}';
+    }
 }
